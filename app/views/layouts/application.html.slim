@@ -9,6 +9,11 @@ html lang="en"
     = csrf_meta_tags
 
   body
-    = display_flash_messages
-
-    = yield
+    = render 'layouts/navbar'
+    .container
+      .row
+        .medium-6.medium-offset-3.columns
+          = display_flash_messages
+      .row
+        .medium-6.medium-offset-3.columns
+          = yield
