@@ -40,7 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'html2slim'
 gem 'slim-rails'
 # Foundation frontend
-gem 'foundation-rails'
+# gem 'foundation-rails'
 gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
 # Devise for user authentication
 gem 'devise'

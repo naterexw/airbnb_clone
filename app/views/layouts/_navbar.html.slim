@@ -2,14 +2,17 @@
   button.menu-icon[type="button" data-toggle="example-menu"]
   .title-bar-title
     | Menu
-#example-menu.top-bar
+#reponsive-menu.top-bar
+  .top-bar-title
+    ul.title-area
+      li.name
+        h3
+          a href=(root_path) Airbnb clone
   .top-bar-left
     ul.dropdown.menu[data-dropdown-menu]
-      li.menu-text
-        | Site Title
       li
         a[href="#"]
-          | One
+          | Dropdown menu
         ul.menu.vertical
           li
             a[href="#"]
@@ -28,8 +31,22 @@
           | Three
   .top-bar-right
     ul.menu
+      - if current_user
+        li
+          button.alert.button[type="button"]
+            a href=(root_path)
+              <i class="fi-power size-18"></i>Log out
+        li
+          = link_to '<i class="fi-power size-18"></i>Log out'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Are you sure?'}
+      - else
+        li
+          = link_to '<i class="fi-torso size-18"></i>Sign up'.html_safe, new_user_registration_path
+        li
+          = link_to '<i class="fi-key size-18"></i>Log in'.html_safe, new_user_session_path
+      li.has-form
+        a href="/" class="button" Get LUCKY
       li
-        input[type="search" placeholder="Search"]
+        input[type="search" placeholder="enter term here"]
       li
-        button.button[type="button"]
+        a href=(root_path) class="alert button"
           | Search

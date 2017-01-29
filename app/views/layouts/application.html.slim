@@ -11,9 +11,9 @@ html lang="en"
   body
     = render 'layouts/navbar'
     .container
+      | <br>
       .row
         .medium-6.medium-offset-3.columns
           = display_flash_messages
       .row
-        .medium-6.medium-offset-3.columns
-          = yield
+        = yield
