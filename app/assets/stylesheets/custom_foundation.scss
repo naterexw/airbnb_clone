@@ -1,0 +1,17 @@
+// Box sizing hack
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+ul.title-area {
+  li {
+    list-style: none;
+    padding-top: 0.7rem;
+    a {
+      color: inherit;
+    } 
+  }
+}
