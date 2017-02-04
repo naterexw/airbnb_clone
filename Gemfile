@@ -44,6 +44,7 @@ gem 'slim-rails'
 gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
 # Devise for user authentication
 gem 'devise'
+gem 'gravatarify', '~> 3.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

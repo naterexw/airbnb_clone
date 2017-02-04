@@ -1,6 +1,7 @@
 .medium-4.medium-offset-4.columns
-  h2
-    | Resend confirmation instructions
+  center 
+    h2
+      | Resend confirmation instructions
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
     = devise_error_messages!
     .field

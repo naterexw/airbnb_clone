@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 1.2, >= 1.2.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gravatarify (3.0.0)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -190,6 +191,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   foundation_rails_helper (>= 3.0.0.rc2, < 4.0)
+  gravatarify (~> 3.0.0)
   html2slim
   jbuilder (~> 2.5)
   jquery-rails
