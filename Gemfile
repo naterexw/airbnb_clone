@@ -39,12 +39,17 @@ gem 'jbuilder', '~> 2.5'
 # Slim
 gem 'html2slim'
 gem 'slim-rails'
+
 # Foundation frontend
 # gem 'foundation-rails'
-gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
+# gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
+
 # Devise for user authentication
 gem 'devise'
 gem 'gravatarify', '~> 3.0.0'
+
+# Toaster flash messages
+gem 'toastr_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

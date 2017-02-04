@@ -10,10 +10,8 @@ html lang="en"
 
   body
     = render 'shared/navbar'
+    = render 'shared/toastr_flash'
     .container
       br
-      .row
-        .medium-4.medium-offset-4.columns
-          = display_flash_messages
       .row
         = yield
