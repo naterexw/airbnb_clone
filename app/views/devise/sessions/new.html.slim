@@ -8,7 +8,7 @@
       = f.email_field :email, autofocus: true
     .field
       / = f.label :password
-      br
+      / br
       = f.password_field :password, autocomplete: "off"
     - if devise_mapping.rememberable?
       .field
