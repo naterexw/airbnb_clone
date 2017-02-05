@@ -13,9 +13,10 @@
         = link_to 'change avatar', 'http://en.gravatar.com'
     .field
       br
+      = f.label :full_name
       = f.text_field :full_name, autofocus: true
     .field
-      / = f.label :email
+      = f.label :email
       / br
       = f.email_field :email, autofocus: true
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
@@ -23,7 +24,7 @@
         | Currently waiting confirmation for: 
         = resource.unconfirmed_email
     .field
-      / = f.label :password
+      = f.label :password
       / i
       /   | (leave blank if you don't want to change it)
       br

@@ -6,14 +6,15 @@
     = render "shared/devise_messages"
     .field
       br
+      = f.label :full_name
       = f.text_field :full_name, autofocus: true
     .field
-      / = f.label :email
+      = f.label :email
       / br
       = f.email_field :email, autofocus: true
     .field
       br
-      / = f.label :password
+      = f.label :password
       - if @minimum_password_length
         em
           | (
@@ -21,7 +22,7 @@
           |  characters minimum)
       = f.password_field :password, autocomplete: "off"
     .field
-      / = f.label :password_confirmation
+      = f.label :password_confirmation
       / br
       = f.password_field :password_confirmation, autocomplete: "off"
     .actions

@@ -6,7 +6,7 @@
     = render "shared/devise_messages"
     = f.hidden_field :reset_password_token
     .field
-      / = f.label :password, "New password"
+      = f.label :password, "New password"
       br
       - if @minimum_password_length
         em
@@ -16,7 +16,7 @@
         br
       = f.password_field :password, autofocus: true, autocomplete: "off"
     .field
-      / = f.label :password_confirmation, "Confirm new password"
+      = f.label :password_confirmation, "Confirm new password"
       br
       = f.password_field :password_confirmation, autocomplete: "off"
     .actions
