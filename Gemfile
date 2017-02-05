@@ -51,6 +51,12 @@ gem 'gravatarify', '~> 3.0.0'
 # Toaster flash messages
 gem 'toastr_rails'
 
+# Elastic email
+gem 'elastic_email_rails'
+
+# Environment variables
+gem 'figaro'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

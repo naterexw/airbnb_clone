@@ -86,3 +86,6 @@ Temporary Items
 # Directories potentially created on remote AFP share
 
 # End of https://www.gitignore.io/api/rails,osx,redis,macos
+
+# Ignore application configuration
+/config/application.yml
