@@ -1,8 +1,8 @@
 .medium-4.medium-offset-4.columns
   center
     h2
-      | Edit 
-      = resource_name.to_s.humanize
+      | Edit Profile 
+      / = resource_name.to_s.humanize
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "shared/devise_messages"
     .field
@@ -10,7 +10,7 @@
         br
         = image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
         - if !current_user.image?
-          | &nbsp;&nbsp;
+          | &nbsp;&nbsp;&nbsp;
           = link_to 'change avatar', 'http://en.gravatar.com'
     .field
       br

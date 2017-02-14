@@ -1,1 +1,17 @@
-= image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
+.row
+  .medium-3.columns
+    center
+      = image_tag avatar_url(@user) + "?type=normal", class: 'img-circle'
+    .panel.callout
+      .panel-heading
+        h4 Verification
+      .panel-body
+        | Email Address
+        br
+        | Phone Number
+  .medium-6.columns
+    h2
+      = @user.full_name
+    .description.row-space-3
+      = @user.description
+  

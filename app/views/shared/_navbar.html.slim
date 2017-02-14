@@ -17,7 +17,7 @@
           li
             input[type="search" placeholder="enter term here"]
           li
-            button.alert.button[type="button"]
+            button.airbnb.button[type="button"]
               | Search
           / li
           /   a[href="#"] First item
@@ -27,9 +27,9 @@
         - if !user_signed_in?
           ul.menu
             li
-              = link_to '<i class="fi-key size-18"></i>Log in'.html_safe, new_user_session_path
+              = link_to '<i class="fi-key size-15"></i>Log in'.html_safe, new_user_session_path
             li
-              = link_to '<i class="fi-torso size-18"></i>Sign up'.html_safe, new_user_registration_path
+              = link_to '<i class="fi-torso size-15"></i>Sign up'.html_safe, new_user_registration_path
         - else
           ul.dropdown.menu[data-dropdown-menu]
             li

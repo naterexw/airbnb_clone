@@ -5,16 +5,92 @@
   -webkit-box-sizing: border-box;
 }
 
-.title-area {
-  li {
-    list-style: none;
-    padding-top: .7rem;
-    a {
-      color: inherit;
+body {
+  color: #565a5c;
+  background-color: #F8F8F8;
+}
+
+// .container {
+//   width: 80%
+// }
+
+$airbnb-red: #ff5a5f;
+$airbnb-pink: #ff7e82;
+$airbnb-dark-red: #fa0008;
+$white: #ffffff;
+
+.title-bar, .top-bar {
+  background-color: $white;
+  .title-area {
+    color: $airbnb-red;
+    font-size: 2em;
+    font-weight: 400;
+    li {
+      list-style: none;
+      padding-top: .7rem;
+      a {
+        color: inherit;
+      }
     }
   }
 }
 
 .img-circle {
   border-radius: 50%; // set radius in percents
+}
+
+.button {
+  border-radius: 2px;
+  font-weight: bold;
+  padding: 10px 25px;
+}
+
+.airbnb.button {
+  border: 1px solid $airbnb-red;
+  border-radius: 2px;
+  font-weight: bold;
+  background-color: $airbnb-red;
+  color: $white;
+  padding: 10px 25px;
+}
+
+.airbnb.button:hover, .airbnb.button:focus {
+  border-color: $airbnb-pink;
+  border-bottom-color: $airbnb-dark-red;
+  background-color: $airbnb-pink;
+  outline: none;
+}
+
+.airbnb.button:active {
+  border-color: $airbnb-dark-red;
+  background-color: $airbnb-dark-red;
+  outline: none;
+}
+
+.panel.callout .panel-heading {
+  color: #565a6c;
+  background-color: #edefed;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.description {
+  color: #575757;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;}
+
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
