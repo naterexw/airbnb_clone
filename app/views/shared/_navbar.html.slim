@@ -34,10 +34,7 @@
           ul.dropdown.menu[data-dropdown-menu]
             li
               a href=""
-                - if current_user.image?
-                  = image_tag current_user.image, siz
-                - else
-                  = gravatar_tag current_user.email, size: 20
+                = image_tag avatar_url(current_user), size: 20, class: 'img-circle'
                 = current_user.full_name
               ul.menu.vertical
                 li 

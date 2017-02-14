@@ -8,10 +8,8 @@
     .field
       center
         br
-        - if current_user.image?
-          = image_tag current_user.image + "?type=normal"
-        - else
-          = gravatar_tag current_user.email, label: false
+        = image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
+        - if !current_user.image?
           | &nbsp;&nbsp;
           = link_to 'change avatar', 'http://en.gravatar.com'
     .field
