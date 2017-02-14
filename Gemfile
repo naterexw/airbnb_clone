@@ -48,6 +48,9 @@ gem 'slim-rails'
 gem 'devise'
 gem 'gravatarify', '~> 3.0.0'
 
+# Facebook login
+gem 'omniauth-facebook'
+
 # Toaster flash messages
 gem 'toastr_rails'
 
