@@ -1,0 +1,108 @@
+wor.  
+.panel.callout
+  .panel-heading
+    h4.text-center 
+      | Create your listing
+  .panel-body
+    = form_for @room do |f|
+      .row
+        .medium-8.medium-centered.columns
+          .row
+            .field
+              .medium-4.columns
+                = f.label :home_type
+                = f.select :home_type, [["Apartment", "Apartment"], 
+                                        ["House", "House"], 
+                                        ["Bed & Breakfast", 'Bed & Breakfast']],
+                                        id: 'home_type', prompt: "Select...", autofocus: true
+            .field
+              .medium-4.columns
+                = f.label :room_type
+                = f.select :room_type, [["Entire Home", "Entire Home"], 
+                                        ["Private Room", "Private Room"], 
+                                        ["Shared Room", 'Shared Room']],
+                                        id: 'room_type', prompt: "Select...", autofocus: true
+            .field
+              .medium-4.columns
+                = f.label :accomodates
+                = f.select :accomodate, [["1 person", 1], 
+                                        ["2 people", 2], 
+                                        ["3 people", 3],
+                                        ["4 people", 4],
+                                        ["5 people", 5], 
+                                        ["6 people", 6],],
+                                        id: 'accomodate', prompt: "Select...", autofocus: true
+          .row
+            .field
+              .medium-4.columns
+                = f.label :price_per_night
+                .input-group
+                  span.input-group-label
+                    | $
+                  input.input-group-field[type="number", min='1']
+            .field
+              .medium-4.columns
+                = f.label :bedrooms
+                = f.select :bedroom, [["1", 1], 
+                                        ["2", 2], 
+                                        ["3", 3],
+                                        ["4", 4],
+                                        ["5", 5], 
+                                        ["6", 6],],
+                                        id: 'bedroom', prompt: "Select...", autofocus: true
+            .field
+              .medium-4.columns
+                = f.label :bathrooms
+                = f.select :bathroom, [["1", 1], 
+                                        ["2", 2], 
+                                        ["3", 3],
+                                        ["4", 4],
+                                        ["5", 5], 
+                                        ["6", 6],],
+                                        id: 'bathroom', prompt: "Select...", autofocus: true
+          .row 
+            .field
+              .medium-12.columns
+                = f.label :listing_name
+                = f.text_field :listing_name, placeholder: 'Be clear and descriptive', autofocus: true
+          .row
+            .field
+              .medium-12.columns
+                = f.label :summary
+                = f.text_area :summary, rows: 3, placeholder: 'Tell us about your place', autofocus: true
+          .row
+            .field
+              .medium-12.columns
+                = f.label :address
+                = f.text_field :address, placeholder: 'What is your address', autofocus: true                                 
+          .row
+            .field
+              .medium-4.small-6.columns
+                = f.check_box :is_internet
+                = f.label :internet
+            .field
+              .medium-4.small-6.columns
+                = f.check_box :is_tv
+                = f.label :tv
+            .field
+              .medium-4.small-6.columns
+                = f.check_box :is_kitchen
+                = f.label :kitchen
+          .row
+            .field
+              .medium-4.small-6.columns
+                = f.check_box :is_air
+                = f.label :airconditioning
+            .field
+              .medium-4.small-6.columns.end
+                = f.check_box :is_heating
+                = f.label :heating
+            .field
+              .medium-4.columns
+                = f.check_box :active
+                = f.label :active_listing
+          .actions
+            = f.submit "Save", class: 'airbnb button float-center'
+            / = link_to "Back", :back, class: "button float-right"
+          
+                
