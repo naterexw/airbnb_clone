@@ -1,59 +1,74 @@
-.medium-4.medium-offset-4.columns
-  center
-    h2
-      | Edit Profile 
-      / = resource_name.to_s.humanize
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = render "shared/devise_messages"
-    .field
-      center
-        br
-        = image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
-        - if !current_user.image?
-          | &nbsp;&nbsp;&nbsp;
-          = link_to 'change avatar', 'http://en.gravatar.com'
-    .field
-      br
-      = f.label :full_name
-      = f.text_field :full_name, autofocus: true
-    .field
-      = f.label :email
-      / br
-      = f.email_field :email, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      div
-        | Currently waiting confirmation for: 
-        = resource.unconfirmed_email
-    .field
-      = f.label :password
-      / i
-      /   | (leave blank if you don't want to change it)
-      br
-      - if @minimum_password_length
-        / br
-        em
-          | (
-          = @minimum_password_length
-          |  characters minimum)
-      br
-      = f.password_field :password, label: "New password", autocomplete: "off", placeholder: "(leave blank if you don't want to change it)"
-    .field
-      / = f.label :password_confirmation
-      / br
-      = f.password_field :password_confirmation ,label: "New password confirmation", autocomplete: "off"
-    .field
-      / = f.label :current_password
-      br
-      i
-        | (we need your current password to confirm your changes)
-      br
-      = f.password_field :current_password, autocomplete: "off"
-    .actions
-      = f.submit "Update", class: 'success button'
-  / h3
-    / | Cancel my account
+.medium-3.columns
+  ul.sidebar-list.no-bullet
+    li.sidebar-item
+      = link_to 'Edit Profile', edit_user_registration_path, class: 'sidebar-link active'
   br
-  h4
-    | Unhappy? 
-    = button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "alert button"
-  = link_to "Back", :back, class: "button"
+  = link_to 'View My Profile', user_path(current_user.id), class: 'button wide'
+.medium-9.columns
+  .panel.callout
+    .row
+      .medium-6.medium-offset-3.columns
+        center
+          h2
+            | Your Profile
+            / = resource_name.to_s.humanize
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          = render "shared/devise_messages"
+          .field
+            / br
+            center
+              = image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
+              - if !current_user.image?
+                | &nbsp;&nbsp;&nbsp;
+                = link_to 'change avatar', 'http://en.gravatar.com'
+          .field
+            = f.label :full_name
+            / br
+            = f.text_field :full_name, autofocus: true
+          .field
+            = f.label :email
+            / br
+            = f.email_field :email, autofocus: true
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            div
+              | Currently waiting confirmation for: 
+              = resource.unconfirmed_email
+          .field
+            = f.label :phone_number
+            = f.text_field :phone_number, autofocus: true
+          .field 
+            = f.label :description
+            = f.text_area :description, autofocus: true, rows: 3, cols: 25
+          - if current_user.provider != 'facebook'
+            .field
+              = f.label :new_password
+              / br
+              - if @minimum_password_length
+                em
+                  | (
+                  = @minimum_password_length
+                  |  characters minimum)
+                  / br
+              / i
+              /   | (leave blank if you don't want to change it)
+              = f.password_field :password, autocomplete: "off", placeholder: "(leave blank if you don't want to change it)"
+            .field
+              = f.label :new_password_confirmation
+              / br
+              = f.password_field :password_confirmation, autocomplete: "off"
+            .field
+              = f.label :current_password
+              / br
+              i
+                | (type current password to confirm your changes)
+              / br
+              = f.password_field :current_password, autocomplete: "off"
+          .actions
+            = f.submit "Save", class: 'airbnb button float-center'
+            / = link_to "Back", :back, class: "button float-right"
+        / h3
+          / | Cancel my account
+        / br
+        / h4
+          / | Unhappy? 
+          / = button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "alert button"
