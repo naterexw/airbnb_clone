@@ -10,14 +10,26 @@ body {
   background-color: #F8F8F8;
 }
 
-// .container {
-//   width: 80%
-// }
-
 $airbnb-red: #ff5a5f;
 $airbnb-pink: #ff7e82;
 $airbnb-dark-red: #fa0008;
 $white: #ffffff;
+
+.size-12 { font-size: 12px; }
+.size-13 { font-size: 13px; }
+.size-14 { font-size: 14px; }
+.size-15 { font-size: 15px; }
+.size-16 { font-size: 16px; }
+.size-17 { font-size: 17px; }
+.size-18 { font-size: 18px; }
+.size-19 { font-size: 19px; }
+.size-20 { font-size: 20px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }
 
 .title-bar, .top-bar {
   background-color: $white;
@@ -95,21 +107,13 @@ $white: #ffffff;
   margin-bottom: 24px;
 }
 
-// .container-80 {
-//   width: 80%;
-// }
-
-// .field {
-//   margin-bottom: 25px;
-// }
-
 .sidebar-list {
   padding-left: 0;
   .sidebar-item {
     padding: 10px 0;
     font-size: 16px;
     color: #82888a;
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
     .sidebar-link {
       color: #82888a;
       text-decoration: none;
@@ -124,4 +128,26 @@ $white: #ffffff;
       text-decoration: none;
     }
   }
+}
+
+input[type='checkbox'] {
+  height: 1.25em;
+  width: 1.25em;
+  margin-bottom: -0.25em;
+  margin-right: 5px;
+  vertical-align: top;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  appearance: none;
+  -moz-appearance: none; // Firefox
+  -webkit-appearance: none; // Safari and Chrome
+}
+
+input[type='checkbox']:checked:before {
+  content: '\2713';
+  color: $airbnb-red;
+  position: absolute;
+  font-size: 0.95em;
+  text-align: center;
+  width: 1.25em;
 }

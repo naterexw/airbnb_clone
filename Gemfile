@@ -43,6 +43,7 @@ gem 'slim-rails'
 # Foundation frontend
 # gem 'foundation-rails'
 # gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
+gem "font-awesome-rails"
 
 # Devise for user authentication
 gem 'devise'
