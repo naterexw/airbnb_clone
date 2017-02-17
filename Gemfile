@@ -61,6 +61,9 @@ gem 'elastic_email_rails'
 # Environment variables
 gem 'figaro'
 
+# Paperclip for image uploads
+gem "paperclip", "~> 5.0.0"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
