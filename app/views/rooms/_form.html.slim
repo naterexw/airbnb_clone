@@ -1,10 +1,9 @@
-wor.  
-.panel.callout
-  .panel-heading
-    h4.text-center 
+.card
+  .card-divider
+    h3.text-center 
       | Create your listing
-  .panel-body
-    = form_for @room do |f|
+  .card-section
+    = form_for @room, html: {multipart: true} do |f|
       .row
         .medium-8.medium-centered.columns
           .row
@@ -39,7 +38,7 @@ wor.
                 .input-group
                   span.input-group-label
                     | $
-                  input.input-group-field[type="number", min='1']
+                  = f.number_field :price, class: 'input-group-field', min: "1"
             .field
               .medium-4.columns
                 = f.label :bedrooms
@@ -83,7 +82,7 @@ wor.
             .field
               .medium-4.small-6.columns
                 = f.check_box :is_tv
-                = f.label :tv
+                = f.label :tv, class: 'uppercase'
             .field
               .medium-4.small-6.columns
                 = f.check_box :is_kitchen
@@ -102,8 +101,18 @@ wor.
                 = f.check_box :active
                 = f.label :active_listing
           br
+          .row
+            .field
+              .medium-4.columns
+                a.alert.hollow.button.button-file
+                  i.fa.fa-cloud-upload
+                  |  Upload photos
+                  = file_field_tag "images[]", type: :file, multiple: true
+          #photos
+            = render 'photos/list'
+          br
           .actions
             = f.submit "Save", class: 'airbnb button float-center'
             / = link_to "Back", :back, class: "button float-right"
           
-                
+                  

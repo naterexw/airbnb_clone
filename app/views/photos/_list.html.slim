@@ -1,0 +1,11 @@
+- if @photos
+  .row.medium-up-3[data-equalizer data-equalize-on="medium"]
+    - @photos.each do |photo|
+      .column.column-block
+        .card.photo-card[data-equalizer-watch]
+          .room-photo
+            = image_tag photo.image.url()
+          .card-divider
+            .float-right
+              i.fa.fa-times.fa-lg.airbnb-dark-red
+              .clearfix

@@ -1,17 +1,20 @@
 .row
   .medium-3.columns
-    center
-      = image_tag avatar_url(@user) + "?type=normal", class: 'img-circle'
-    .panel.callout
-      .panel-heading
-        h4 Verification
-      .panel-body
+    = image_tag avatar_url(@user) + "?type=normal", class: 'img-circle float-center'
+    br
+    .card
+      .card-divider
+        h3.text-center Verification
+      .card-section
         | Email Address
         br
         | Phone Number
-  .medium-6.columns
-    h2
-      = @user.full_name
-    .description.row-space-3
-      = @user.description
+  .medium-6.columns.end
+    .card
+      .card-divider 
+        h3.text-center
+          = @user.full_name
+      / .description.row-space-3
+      .card-section
+        = @user.description
   
