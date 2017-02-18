@@ -20,6 +20,11 @@
 $(document).on('turbolinks:load', function() {
   // $(function(){ $(document).foundation(); });
   jQuery(document).foundation();
+
+  // Reinitialize Foundation equilizer
+  function resetHeights(groups) {
+    $('.medium-up-3').foundation('applyHeightByRow', groups);
+  }
 });
 
 // jQuery(document).ready(function () {

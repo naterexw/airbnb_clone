@@ -1,0 +1,7 @@
+// Render Photos#_list 
+| $('#photos').html('
+= j render "photos/list"
+| ');
+
+// Reinitialize Foundation equilizer
+| new Foundation.Equalizer($(".medium-up-3")).getHeightsByRow(resetHeights);

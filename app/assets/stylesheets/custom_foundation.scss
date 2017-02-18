@@ -1,12 +1,13 @@
-// Navbar
-.title-bar, .top-bar {
+// Navigation bar
+.title-bar,
+.top-bar {
   background-color: $white;
   .title-area {
-    color: $airbnb-red;
-    font-size: 2em;
+    color      : $airbnb-red;
+    font-size  : 2em;
     font-weight: 400;
     li {
-      list-style: none;
+      list-style : none;
       padding-top: .7rem;
       a {
         color: inherit;
@@ -14,118 +15,122 @@
     }
   }
 }
-
 // Button
 .button {
   border-radius: 2px;
-  font-weight: bold;
-  padding: 10px 25px;
+  font-weight  : bold;
+  padding      : 10px 25px;
 }
-
 .airbnb.button {
-  border: 1px solid $airbnb-red;
-  border-radius: 2px;
-  font-weight: bold;
+  border          : 1px solid $airbnb-red;
+  border-radius   : 2px;
+  font-weight     : bold;
   background-color: $airbnb-red;
-  color: $white;
-  padding: 10px 25px;
+  color           : $white;
+  padding         : 10px 25px;
 }
-
-.airbnb.button:hover, .airbnb.button:focus {
-  border-color: $airbnb-pink;
+.airbnb.button:focus,
+.airbnb.button:hover {
+  border-color       : $airbnb-pink;
   border-bottom-color: $airbnb-dark-red;
-  background-color: $airbnb-pink;
-  outline: none;
+  background-color   : $airbnb-pink;
+  outline            : none;
 }
-
 .airbnb.button:active {
-  border-color: $airbnb-dark-red;
+  border-color    : $airbnb-dark-red;
   background-color: $airbnb-dark-red;
-  outline: none;
+  outline         : none;
 }
-
 // User#show & #edit
 .description {
-  color: $dark-grey;
-  font-size: 15px;
+  color      : $dark-grey;
+  font-size  : 15px;
   font-weight: 500;
   line-height: 25px;
 }
-
 .sidebar-list {
   padding-left: 0;
   .sidebar-item {
-    padding: 10px 0;
-    font-size: 16px;
-    color: $dark-grey;
+    padding      : 10px 0;
+    font-size    : 16px;
+    color        : $dark-grey;
     border-bottom: 1px solid $dark-grey;
     .sidebar-link {
-      color: $dark-grey;
+      color          : $dark-grey;
       text-decoration: none;
     }
     .sidebar-link.active {
-      color: $dark-grey;
-      font-weight: bold;
+      color          : $dark-grey;
+      font-weight    : bold;
       text-decoration: none;
     }
-    .sidebar-link:hover, .sidebar-link:focus {
-      color: $grey;
+    .sidebar-link:focus,
+    .sidebar-link:hover {
+      color          : $grey;
       text-decoration: none;
     }
   }
 }
-
 // Room#_form.html.slim
 input[type='checkbox'] {
-  height: 1.25em;
-  width: 1.25em;
-  margin-bottom: -0.25em;
-  margin-right: 5px;
-  vertical-align: top;
-  border: 1px solid $dark-grey;
-  border-radius: 2px;
-  appearance: none;
-  -moz-appearance: none; // Firefox
+  height            : 1.25em;
+  width             : 1.25em;
+  margin-bottom     : -0.25em;
+  margin-right      : 5px;
+  vertical-align    : top;
+  border            : 1px solid $dark-grey;
+  border-radius     : 2px;
+  appearance        : none;
+  -moz-appearance   : none; // Firefox
   -webkit-appearance: none; // Safari and Chrome
 }
-
 input[type='checkbox']:checked:before {
-  content: '\2713';
-  color: $airbnb-red;
-  position: absolute;
-  font-size: 0.95em;
+  content   : '\2713';
+  color     : $airbnb-red;
+  position  : absolute;
+  font-size : .95em;
   text-align: center;
-  width: 1.25em;
+  width     : 1.25em;
 }
-
 .button-file {
   position: relative;
   overflow: hidden;
   input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
+    position  : absolute;
+    top       : 0;
+    right     : 0;
+    min-width : 100%;
     min-height: 100%;
-    font-size: 100px;
+    font-size : 100px;
     text-align: right;
     filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
+    opacity   : 0;
+    outline   : none;
     background: $white;
-    cursor: inherit;
-    display: block;
+    cursor    : inherit;
+    display   : block;
   }
 }
-
 .photo-card {
-  display: flex;
+  display       : flex;
   flex-direction: column;
   .room-photo {
     flex-grow: 1;
-    max-height: 120px;
-    // overflow: hidden;
+    img {
+      max-height: 120px;
+      height    : 100%;
+      width     : auto;
+      // object-fit: fill;
+      object-fit: contain;
+      // object-fit: cover;
+      // object-fit: scale-down;
+    }
   }
   .card-divider {
+    .fa.fa-times {
+      // 'X' button not hidden by large photos within card
+      position: relative;
+      z-index : 1;
+    }
   }
 }

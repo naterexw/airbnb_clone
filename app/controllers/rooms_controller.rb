@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
         end
       end
       @photos = @room.photos
-      redirect_to edit_room_path(@room), flash: {success: "Successfully created"}
+      redirect_to edit_room_path(@room), flash: { success: 'Created room' }
     else
       flash[:alert] = @room.errors.full_messages.first
       render :new
@@ -35,7 +35,7 @@ class RoomsController < ApplicationController
     if current_user.id == @room.user.id
       @photos = @room.photos
     else
-      redirect_to root_path, flash: {alert: "You don't have permission"}
+      redirect_to root_path, flash: { alert: "You don't have permission" }
     end
   end
 
@@ -46,37 +46,36 @@ class RoomsController < ApplicationController
           @room.photos.create(image: image)
         end
       end
-      redirect_to edit_room_path(@room), flash: {success: "Successfully updated"}
+      redirect_to edit_room_path(@room), flash: { success: 'Updated room' }
     else
       flash[:alert] = @room.errors.full_messages.first
       render :edit
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    def room_params
-      params.require(:room).permit( :home_type,
-                                    :room_type,
-                                    :accomodate,
-                                    :bedroom,
-                                    :bathroom,
-                                    :listing_name,
-                                    :summary,
-                                    :address,
-                                    :is_tv,
-                                    :is_kitchen,
-                                    :is_air,
-                                    :is_heating,
-                                    :is_internet,
-                                    :price,
-                                    :active)
-    end
+  def set_room
+    @room = Room.find(params[:id])
+  end
 
+  def room_params
+    params.require(:room).permit(:home_type,
+                                 :room_type,
+                                 :accomodate,
+                                 :bedroom,
+                                 :bathroom,
+                                 :listing_name,
+                                 :summary,
+                                 :address,
+                                 :is_tv,
+                                 :is_kitchen,
+                                 :is_air,
+                                 :is_heating,
+                                 :is_internet,
+                                 :price,
+                                 :active)
+  end
 end
