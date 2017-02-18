@@ -1,2 +1,24 @@
-h1 Rooms#index
-p Find me in app/views/rooms/index.html.slim
+.medium-3.columns
+  ul.sidebar-list.no-bullet
+    li.sidebar-item
+      = link_to 'Your Listings', rooms_path, class: 'sidebar-link active'
+    li.sidebar-item
+      = link_to 'Your Reservations'
+.medium-9.columns
+  .card
+    .card-divider
+      h3 Listings
+    .card-section
+      - @rooms.each do |room|
+        .row
+          .medium-2.columns
+            = image_tag image_url(room.photos.first), class: 'thumb'
+            / - if room.photos.present?
+            /   = image_tag room.photos.first.image.url(:thumb)
+            / - else 
+            /   = image_tag 'image-coming-soon.png'
+          .medium-7.columns
+            h4 = room.listing_name
+          .medium-3.columns
+            = link_to 'Update', edit_room_path(room), class: 'airbnb button'
+      
