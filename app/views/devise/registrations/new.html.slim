@@ -1,8 +1,7 @@
 .medium-4.medium-offset-4.columns
   / = link_to 'Sign up with Facebook', user_facebook_omniauth_authorize_path, class: 'expanded primary button'
-  center
-    h2
-      | Sign up
+  h2.text-center
+    | Sign up
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "shared/devise_messages"
     .field
