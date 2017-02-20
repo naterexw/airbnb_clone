@@ -19,10 +19,12 @@
           li
             button.airbnb.button[type="button"]
               | Search
+          li
+            = link_to "<i class='fa fa-home'></i>Create room".html_safe, new_room_path
+          li
+            = link_to "<i class='fa fa-list'></i>Room index".html_safe, rooms_path
           / li
           /   a[href="#"] First item
-          / li
-          /   a[href="#"] Second item
       .top-bar-right
         - if !user_signed_in?
           ul.menu

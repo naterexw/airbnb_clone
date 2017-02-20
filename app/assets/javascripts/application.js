@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require toastr_rails
 //= require turbolinks
 //= require_tree .

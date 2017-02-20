@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -43,7 +43,7 @@ gem 'slim-rails'
 # Foundation frontend
 # gem 'foundation-rails'
 # gem 'foundation_rails_helper', '>= 3.0.0.rc2', '< 4.0'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Devise for user authentication
 gem 'devise'
@@ -62,7 +62,8 @@ gem 'elastic_email_rails'
 gem 'figaro'
 
 # Paperclip for image uploads
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
+gem 'jquery-fileupload-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
