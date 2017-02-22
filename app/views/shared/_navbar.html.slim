@@ -19,10 +19,6 @@
           li
             button.airbnb.button[type="button"]
               | Search
-          li
-            = link_to "<i class='fa fa-home'></i>Create room".html_safe, new_room_path
-          li
-            = link_to "<i class='fa fa-list'></i>Room index".html_safe, rooms_path
           / li
           /   a[href="#"] First item
       .top-bar-right
@@ -38,6 +34,10 @@
               / = link_to "<i class='fa fa-user-plus'></i>Sign up".html_safe, new_user_registration_path
         - else
           ul.dropdown.menu[data-dropdown-menu]
+            li
+              = link_to "<i class='fa fa-home'></i>Create room".html_safe, new_room_path
+            li
+              = link_to "<i class='fa fa-list'></i>Room index".html_safe, rooms_path
             li
               a href=""
                 = image_tag avatar_url(current_user), size: 20, class: 'img-circle'

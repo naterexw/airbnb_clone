@@ -37,6 +37,9 @@ body {
 .uppercase {
   text-transform: uppercase;
 }
+.line-through {
+  text-decoration: line-through;
+}
 // Foundation card
 .card {
   margin-bottom: 1rem;
@@ -45,7 +48,10 @@ body {
   background   : #fefefe;
   box-shadow   : none;
   overflow     : hidden;
-  color        : #0a0a0a;
+  color        : $dark-grey; // #0a0a0a;
+  label {
+    color: $dark-grey; // #0a0a0a;
+  }
   .card-divider {
     padding   : 1rem;
     background: #e6e6e6;
@@ -64,15 +70,22 @@ body {
   margin-bottom: 0;
 }
 // Spacing
-.row-space-1 {
+.row-space-6 {
   margin-top   : 6px;
   margin-bottom: 6px;
 }
-.row-space-2 {
+.row-space-12 {
   margin-top   : 12px;
   margin-bottom: 12px;
 }
-.row-space-3 {
+.row-space-24 {
   margin-top   : 24px;
   margin-bottom: 24px;
+}
+.orbit {
+  i.fa.fa-angle-left,
+  i.fa.fa-angle-right {
+    color      : $airbnb-dark-red;
+    font-weight: 9000;
+  }
 }
