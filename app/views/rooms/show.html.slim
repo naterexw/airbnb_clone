@@ -29,17 +29,18 @@
                   / button class=('is-active' if photo.id == @photos[0].id)
                     span.show-for-sr
                       | First slide details
-      br
       // Main info
       .row
         .medium-8.columns
           .row
             .medium-3.columns.text-center
-              = image_tag avatar_url(@room.user) + "?type=large", class: 'img-circle'
+              = link_to user_path(@room.user)
+                = image_tag avatar_url(@room.user) + "?type=large", class: 'img-circle'
               br
-              = @room.user.full_name
+              = link_to user_path(@room.user)
+                = @room.user.full_name
             .medium-9.columns
-              h4
+              h3
                 = @room.listing_name
               = @room.address
               .row.row-space-6.text-center
@@ -65,7 +66,7 @@
       .row
         // About
         .medium-6.columns
-          h2 About this room
+          h3 About this room
           p
             = @room.summary
         // Ammenities
@@ -82,15 +83,14 @@
               | Airconditioning
             li class=(@room.is_heating? ? '' : 'line-through')
               | Heating
-      br
       // Google maps
       .row
         .medium-12.columns
           h3 Location
           = render 'rooms/google_map'
       br
+      // Nearby rooms
       .row
-        // Nearby rooms
         .medium-12.columns
           h3
             | Nearby rooms
