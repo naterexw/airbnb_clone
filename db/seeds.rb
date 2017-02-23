@@ -58,9 +58,12 @@ puts "Created ##{Room.count} room#{'s' unless Room.count == 1}"
 # 20.times do
 #   Photo.create!(
 #     room_id: Faker::Number.between(1, 5),
-#     image: Faker::Avatar.image
+#     image: Faker::Avatar.image,
+#     image_file_name: Faker::StarWars.droid,
+#     image_content_type: 'image/jpeg',
+#     image_file_size: 100,
+#     image_updated_at: Faker::Date.between(1.days.ago, Date.today)
 #   )
-#   count += 1
 # end
-# room.photo = File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample)
 # puts "Created ##{Photo.count} room#{'s' unless Photo.count == 1}"
+# room.photo = File.open(Dir.glob(File.join(Rails.root, 'sampleimages', '*')).sample)
