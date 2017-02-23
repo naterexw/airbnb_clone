@@ -2,6 +2,9 @@ class Room < ApplicationRecord
   belongs_to :user
   has_many :photos, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed? # auto-fetch coordinates
+
   validates :home_type, presence: true
   validates :room_type, presence: true
   validates :accomodate, presence: true
@@ -11,5 +14,4 @@ class Room < ApplicationRecord
   validates :summary, presence: true, length: { maximum: 500 }
   validates :address, presence: true
   validates :price, presence: true
-
 end

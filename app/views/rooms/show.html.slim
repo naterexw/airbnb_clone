@@ -67,7 +67,7 @@
                 | Heating
     // Photos
     .row
-      .medium-6.medium-offset-3.columns
+      .medium-10.medium-offset-1.columns
         .orbit[role="region" aria-label="listing photos" data-orbit]
           - if @photos
             ul.orbit-container
@@ -81,11 +81,16 @@
                 i.fa.fa-angle-right
               - @photos.each do |photo|
                 li.is-active.orbit-slide
-                  = image_tag photo.image.url, alt: 'photo.image_file_name}', class: 'float-center medium orbit-image'
+                  = image_tag photo.image.url, alt: "#{photo.image_file_name}", class: 'float-center medium orbit-image'
                   / figcaption.orbit-caption
                   /   | Space, the final frontier.
             nav.orbit-bullets
               - @photos.each do |photo|
-                button class=('is-active' if photo.id == @photos[0].id)
+                button
+                / button class=('is-active' if photo.id == @photos[0].id)
                   span.show-for-sr
-                    | First slide details.
+                    | First slide details
+    // Google maps
+    .row
+      .medium-10.medium-offset-1.columns
+        = render 'rooms/google_map'
