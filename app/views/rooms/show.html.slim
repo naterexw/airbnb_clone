@@ -74,14 +74,34 @@
           h3 Amenities
           ul.amenities.no-bullet
             li class=(@room.is_internet? ? '' : 'line-through')
+              - if @room.is_internet?
+                i.fa.fa-check-circle &nbsp;&nbsp; 
+              - else 
+                i.fa.fa-times &nbsp;&nbsp;
               | Internet
             li class=(@room.is_tv? ? '' : 'line-through')
+              - if @room.is_tv?
+                i.fa.fa-check-circle &nbsp;&nbsp; 
+              - else 
+                i.fa.fa-times &nbsp;&nbsp;
               | TV
             li class=(@room.is_kitchen? ? '' : 'line-through')
+              - if @room.is_kitchen?
+                i.fa.fa-check-circle &nbsp;&nbsp; 
+              - else 
+                i.fa.fa-times &nbsp;&nbsp;
               | Kitchen
             li class=(@room.is_air? ? '' : 'line-through')
+              - if @room.is_air?
+                i.fa.fa-check-circle &nbsp;&nbsp; 
+              - else 
+                i.fa.fa-times &nbsp;&nbsp;
               | Airconditioning
             li class=(@room.is_heating? ? '' : 'line-through')
+              - if @room.is_heating?
+                i.fa.fa-check-circle &nbsp;&nbsp; 
+              - else 
+                i.fa.fa-times &nbsp;&nbsp;
               | Heating
       // Google maps
       .row
@@ -95,7 +115,7 @@
           h3
             | Nearby rooms
       .row.medium-up-3[data-equalizer data-equalize-on="medium"]
-        - @room.nearbys(10).each do |room|
+        - @room.nearbys(10).first(3).each do |room|
           .column.column-block
             .card.photo-card[data-equalizer-watch]
               .room-photo
@@ -106,8 +126,7 @@
                 br
                 |$
                 = room.price
-                |/per night
-                | &nbsp;&nbsp;
+                |/per night&nbsp;&nbsp;
                 | (
                 = room.distance.round(2)
                 |  miles away)
