@@ -12,13 +12,17 @@
       - @rooms.each do |room|
         .row
           .medium-2.columns
-            = image_tag image_url(room.photos.first), class: 'thumb'
+            = link_to room_path(room)
+              = image_tag image_url(room.photos.first), class: 'thumb' 
             / - if room.photos.present?
             /   = image_tag room.photos.first.image.url(:thumb)
             / - else 
             /   = image_tag 'image-coming-soon.png'
           .medium-7.columns
-            h4 = room.listing_name
+            h4 
+              = link_to room.listing_name, room_path(room)
+            p 
+              = truncate(room.summary, length: 80)
           .medium-3.columns
-            = link_to 'Update', edit_room_path(room), class: 'airbnb button'
-      
+            = link_to 'Edit', edit_room_path(room), class: 'airbnb button'
+        hr

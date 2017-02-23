@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
         end
       end
       @photos = @room.photos
-      redirect_to edit_room_path(@room), flash: { success: 'Created room' }
+      redirect_to room_path(@room), flash: { success: 'Created room' }
     else
       flash[:alert] = @room.errors.full_messages.first
       render :new

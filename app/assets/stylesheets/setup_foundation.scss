@@ -85,10 +85,10 @@ body {
 .orbit {
   i.fa.fa-angle-left,
   i.fa.fa-angle-right {
-    color      : $airbnb-dark-red;
-    font-weight: 9000;
+    color    : $airbnb-dark-red;
+    font-size: 5rem;
   }
   .orbit-container {
-    // border: 1px dotted $dark-grey;
+    height: auto;
   }
 }

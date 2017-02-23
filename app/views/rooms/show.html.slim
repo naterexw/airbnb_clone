@@ -3,94 +3,112 @@
     h3.text-center
       = @room.listing_name
   .card-section
-    // Image
-    .row
-      .medium-12.columns
-        = image_tag image_url(@room.photos.first), class: 'float-center'
-    br
-    // Main info
-    .row
-      .medium-8.columns
-        .row
-          .medium-3.columns.text-center
-            = image_tag avatar_url(@room.user) + "?type=large", class: 'img-circle'
-            br
-            = @room.user.full_name
-          .medium-9.columns
-            h4
-              = @room.listing_name
-            = @room.address
-            .row.row-space-6.text-center
-              .small-3.columns
-                i.fa.fa-home.fa-2x
-                br
-                = @room.home_type
-              .small-3.columns
-                i.fa.fa-users.fa-2x
-                br
-                = pluralize(@room.accomodate, "guest")
-              .small-3.columns
-                i.fa.fa-bed.fa-2x
-                br
-                = pluralize(@room.bedroom, "bedroom")
-              .small-3.columns
-                i.fa.fa-bath.fa-2x
-                br
-                = pluralize(@room.bathroom, "bathroom")
-      .medium-4.columns
-        // Reservation form
-    // About
-    .row
-      .medium-12.columns
-        h2 About this listing 
-        p
-          = @room.summary
-    // Ammenities
-    .row 
-      .medium-2.columns
-        p Amenities
-      .medium-10.columns
-        .row 
-          .medium-6.columns
-            ul.amenities.no-bullet
-              li class=(@room.is_internet? ? '' : 'line-through')
-                | Internet
-              li class=(@room.is_tv? ? '' : 'line-through')
-                | TV
-              li class=(@room.is_kitchen? ? '' : 'line-through')
-                | Kitchen
-          .medium-6.columns
-            ul.amenities.no-bullet
-              li class=(@room.is_air? ? '' : 'line-through')
-                | Airconditioning
-              li class=(@room.is_heating? ? '' : 'line-through')
-                | Heating
-    // Photos
-    .row
-      .medium-10.medium-offset-1.columns
-        .orbit[role="region" aria-label="listing photos" data-orbit]
-          - if @photos
-            ul.orbit-container
-              button.orbit-previous
-                span.show-for-sr
-                  | Previous Slide
-                i.fa.fa-angle-left
-              button.orbit-next
-                span.show-for-sr
-                  | Next Slide
-                i.fa.fa-angle-right
-              - @photos.each do |photo|
-                li.is-active.orbit-slide
-                  = image_tag photo.image.url, alt: "#{photo.image_file_name}", class: 'float-center medium orbit-image'
-                  / figcaption.orbit-caption
-                  /   | Space, the final frontier.
-            nav.orbit-bullets
-              - @photos.each do |photo|
-                button
-                / button class=('is-active' if photo.id == @photos[0].id)
+    .medium-10.medium-centered.columns
+      // Image
+      .row
+        .medium-12.columns
+          .orbit[role="region" aria-label="listing photos" data-orbit]
+            - if @photos
+              ul.orbit-container
+                button.orbit-previous
                   span.show-for-sr
-                    | First slide details
-    // Google maps
-    .row
-      .medium-10.medium-offset-1.columns
-        = render 'rooms/google_map'
+                    | Previous Slide
+                  i.fa.fa-angle-left
+                button.orbit-next
+                  span.show-for-sr
+                    | Next Slide
+                  i.fa.fa-angle-right
+                - @photos.each do |photo|
+                  li.is-active.orbit-slide
+                    = image_tag photo.image.url, alt: "#{photo.image_file_name}", class: 'float-center medium orbit-image'
+                    / figcaption.orbit-caption
+                    /   | Space, the final frontier.
+              nav.orbit-bullets
+                - @photos.each do |photo|
+                  button
+                  / button class=('is-active' if photo.id == @photos[0].id)
+                    span.show-for-sr
+                      | First slide details
+      br
+      // Main info
+      .row
+        .medium-8.columns
+          .row
+            .medium-3.columns.text-center
+              = image_tag avatar_url(@room.user) + "?type=large", class: 'img-circle'
+              br
+              = @room.user.full_name
+            .medium-9.columns
+              h4
+                = @room.listing_name
+              = @room.address
+              .row.row-space-6.text-center
+                .small-3.columns
+                  i.fa.fa-home.fa-2x
+                  br
+                  = @room.home_type
+                .small-3.columns
+                  i.fa.fa-users.fa-2x
+                  br
+                  = pluralize(@room.accomodate, "guest")
+                .small-3.columns
+                  i.fa.fa-bed.fa-2x
+                  br
+                  = pluralize(@room.bedroom, "bedroom")
+                .small-3.columns
+                  i.fa.fa-bath.fa-2x
+                  br
+                  = pluralize(@room.bathroom, "bathroom")
+        .medium-4.columns
+          // Reservation form
+      br
+      .row
+        // About
+        .medium-6.columns
+          h2 About this room
+          p
+            = @room.summary
+        // Ammenities
+        .medium-6.columns
+          h3 Amenities
+          ul.amenities.no-bullet
+            li class=(@room.is_internet? ? '' : 'line-through')
+              | Internet
+            li class=(@room.is_tv? ? '' : 'line-through')
+              | TV
+            li class=(@room.is_kitchen? ? '' : 'line-through')
+              | Kitchen
+            li class=(@room.is_air? ? '' : 'line-through')
+              | Airconditioning
+            li class=(@room.is_heating? ? '' : 'line-through')
+              | Heating
+      br
+      // Google maps
+      .row
+        .medium-12.columns
+          h3 Location
+          = render 'rooms/google_map'
+      br
+      .row
+        // Nearby rooms
+        .medium-12.columns
+          h3
+            | Nearby rooms
+      .row.medium-up-3[data-equalizer data-equalize-on="medium"]
+        - @room.nearbys(10).each do |room|
+          .column.column-block
+            .card.photo-card[data-equalizer-watch]
+              .room-photo
+                = link_to room_path(room)
+                  = image_tag image_url(room.photos.first), class: 'medium float-center'
+              .card-divider.text-center
+                = link_to room.listing_name, room_path(room)
+                br
+                |$
+                = room.price
+                |/per night
+                | &nbsp;&nbsp;
+                | (
+                = room.distance.round(2)
+                |  miles away)
+                
