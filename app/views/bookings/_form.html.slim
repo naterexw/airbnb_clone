@@ -1,0 +1,11 @@
+h3.text-center Reserve this room
+
+= form_for([@room, @room.bookings.new]) do |f| 
+  = f.hidden_field :room_id, value: @room.id
+  = f.hidden_field :price, value: @room.price
+  .field
+    = f.text_field :start_date
+  .field
+    = f.text_field :start_date  
+  .field
+    = f.submit "Book now", class: 'airbnb button float-center'

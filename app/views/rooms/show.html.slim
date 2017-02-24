@@ -62,15 +62,16 @@
                   = pluralize(@room.bathroom, "bathroom")
         .medium-4.columns
           // Reservation form
+          = render 'bookings/form'
       br
       .row
         // About
-        .medium-6.columns
+        .medium-7.columns
           h3 About this room
           p
             = @room.summary
         // Ammenities
-        .medium-6.columns
+        .medium-4.medium-offset-1.columns
           h3 Amenities
           ul.amenities.no-bullet
             li class=(@room.is_internet? ? '' : 'line-through')

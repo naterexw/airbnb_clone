@@ -6,14 +6,15 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.build(booking_params)
 
     if current_user.id == @room.user.id
-      redirect_to @booking.room, flash: { alert: "You can't make booking for your own room" }
+      redirect_to @booking.room, flash: { alert: "You can't make a booking for your own room" }
+      return
     end
 
     if @booking.save
       redirect_to @booking.room, flash: { success: 'Created booking' }
     else
       flash[:alert] = @booking.errors.full_messages.first
-      # render :new
+      redirect_to @booking.room
     end
   end
 
