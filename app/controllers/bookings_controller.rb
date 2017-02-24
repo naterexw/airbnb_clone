@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def sanitize_booking_params
-    params[:booking][:start_date] = params[:booking][:start_date].to_date
-    params[:booking][:end_date] = params[:booking][:end_date].to_date
+    params[:booking][:start_date] = Date.parse(params[:booking][:start_date])
+    params[:booking][:end_date] = Date.parse(params[:booking][:end_date])
   end
 end
