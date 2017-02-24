@@ -18,9 +18,9 @@
             / br
             center
               = image_tag avatar_url(current_user) + "?type=normal", class: 'img-circle'
-              - if !current_user.image?
+              - if current_user.provider != 'facebook'
                 | &nbsp;&nbsp;&nbsp;
-                = link_to 'change avatar', 'http://en.gravatar.com'
+                = link_to 'change avatar', 'http://en.gravatar.com', target: :_blank
           .field
             = f.label :full_name
             / br

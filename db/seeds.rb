@@ -11,30 +11,39 @@ User.create!(
   email: 'nate@ionlyflyfirstclass.com',
   password: '12345678',
   password_confirmation: '12345678',
-  image: Faker::Avatar.image,
+  # image: Faker::Avatar.image,
   phone_number: Faker::PhoneNumber.phone_number,
   description: Faker::Hipster.paragraph(2),
   confirmed_at: Faker::Date.between(1.days.ago, Date.today)
 )
-# User.create!(
-#   full_name: 'Nate Welling'
-#   email: 'nater.welling@gmail.com'
-#   password: '12345678'
-#   provider: 'facebook'
-#   uid: ''
-# )
+User.create!(
+  full_name: 'Nathan Rex',
+  email: 'nate@natewelling.com',
+  password: '12345678',
+  password_confirmation: '12345678',
+  # provider: 'facebook',
+  # uid: '10104556876919069',
+  phone_number: Faker::PhoneNumber.phone_number,
+  description: Faker::Hipster.paragraph(2),
+  confirmed_at: Faker::Date.between(1.days.ago, Date.today)
+)
 puts "Created ##{User.count} user#{'s' unless User.count == 1}"
 
 address = ['340 S Lemon Ave, Walnut, CA 91789',
            '385 S Lemon Ave a, Walnut, CA 91789',
            '351 Paseo Sonrisa, Walnut, CA 91789',
            '20259 Valley Blvd, Walnut, CA 91789',
-           '20373 Valley Blvd, Walnut, CA 91789']
+           '20373 Valley Blvd, Walnut, CA 91789',
+           '319 Lemon Creek Dr, Walnut, CA 91789',
+           '19875 Calle Baja, Walnut, CA 91789',
+           '139 N Avenida Alipaz, Walnut, CA 91789']
+
 count = 0
 
-5.times do
+8.times do
   Room.create!(
-    user_id: 1,
+    # user_id: 1,
+    user_id: Faker::Number.between(1, 2),
     home_type: ['Apartment', 'House', 'Bed & Breakfast'].sample,
     room_type: ['Entire Home', 'Private Room', 'Shared Room'].sample,
     accomodate: Faker::Number.between(1, 6),
