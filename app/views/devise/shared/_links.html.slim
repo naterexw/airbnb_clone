@@ -1,4 +1,4 @@
-- if controller_name != 'sessions'
+- if controller_name != 'sessions' || params[:modal]
   = link_to "Log in", new_session_path(resource_name), class: "button float-right"
   br
 - if devise_mapping.registerable? && controller_name != 'registrations'

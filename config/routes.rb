@@ -17,7 +17,7 @@ Rails.application.routes.draw do
                                     cancel: 'cancel',
                                     confirmation: 'verification' },
                       controllers: {  omniauth_callbacks: 'users/omniauth_callbacks',
-                                      # sessions: 'users/sessions',
+                                      sessions: 'users/sessions',
                                       registrations: 'users/registrations' }
 
   resources :users, only: [:show]
@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :bookings, only: [:create]
   end
+  get '/preload', to: 'bookings#preload'
+
 end

@@ -25,4 +25,12 @@ $(function() {
   }).on('changeDate', function(ev) {
     checkout.hide();
   }).data('datepicker');
+
+  // Preload action AJAX
+  // $.ajax({
+  //   url: '/preload',
+  //   data: {
+  //     'room_id':
+  //   }
+  // })
 });
