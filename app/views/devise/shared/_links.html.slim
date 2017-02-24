@@ -1,8 +1,8 @@
 - if controller_name != 'sessions' || params[:modal]
-  = link_to "Log in", new_session_path(resource_name), class: "button float-right"
+  = link_to "Log in", new_session_path(resource_name), class: "button float-right", remote: true, method: :get, 'data-open': 'login-modal'
   br
 - if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to "Sign up", new_registration_path(resource_name), class: "button float-right"
+  = link_to "Sign up", new_registration_path(resource_name), class: "button float-right", remote: true, method: :get, 'data-open': 'signup-modal' 
   br
 - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
   = link_to "Forgot your password?", new_password_path(resource_name), class: "float-left"

@@ -25,13 +25,14 @@
         - if !user_signed_in?
           ul.menu
             li
-              / a[data-open="loginModal" method: :get]
+              / a[data-open="login-modal" method: :get]
                 / = "<i class='fa fa-sign-in'></i>Log in".html_safe
-              = link_to "<i class='fa fa-sign-in'></i>Log in".html_safe, new_user_session_path, remote: true, method: :get, 'data-open': 'loginModal' 
+              = link_to "<i class='fa fa-sign-in'></i>Log in".html_safe, new_user_session_path, remote: true, method: :get, 'data-open': 'login-modal' 
             li
-              a[data-open="signupModal" method: :get]
-                = "<i class='fa fa-user-plus'></i>Sign up".html_safe
+              / a[data-open="signupModal" method: :get]
+              /   = "<i class='fa fa-user-plus'></i>Sign up".html_safe
               / = link_to "<i class='fa fa-user-plus'></i>Sign up".html_safe, new_user_registration_path
+              = link_to "<i class='fa fa-user-plus'></i>Sign up".html_safe, new_user_registration_path, remote: true, method: :get, 'data-open': 'signup-modal' 
         - else
           ul.dropdown.menu[data-dropdown-menu]
             li

@@ -2,6 +2,7 @@
   / = link_to 'Log in with Facebook', user_facebook_omniauth_authorize_path, class: 'expanded primary button'
   h2.text-center
     | Log in
+  / = form_for(:user, url: new_user_session_path) do |f|
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email

@@ -3,8 +3,9 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    super
+    # super
     respond_to do |format|
+      format.html { redirect_to root_path, flash: {alert: 'Invalid email or password'}}
       format.js
     end
   end
