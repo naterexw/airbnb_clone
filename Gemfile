@@ -71,6 +71,9 @@ gem 'geocoder'
 # Generating fake data such as names, addresses, and phone numbers.
 gem 'faker', '~> 1.6', '>= 1.6.3'
 
+# Date validator
+gem 'date_validator'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

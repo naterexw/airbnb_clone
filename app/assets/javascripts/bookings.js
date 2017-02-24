@@ -1,14 +1,9 @@
 $(function() {
-  $('#datepicker-1').fdatepicker({
-    format: 'mm-dd-yyyy'
-  });
-  $('#datepicker-2').fdatepicker({
-    format: 'mm-dd-yyyy'
-  });
   // implementation of disabled form fields
   var nowTemp = new Date();
   var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
   var checkin = $('#datepicker-1').fdatepicker({
+    // format: 'mm-dd-yyyy',
     onRender: function(date) {
       return date.valueOf() < now.valueOf() ? 'disabled' : '';
     }
@@ -23,6 +18,7 @@ $(function() {
     $('#datepicker-2')[0].focus();
   }).data('datepicker');
   var checkout = $('#datepicker-2').fdatepicker({
+    // format: 'mm-dd-yyyy',
     onRender: function(date) {
       return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
     }
