@@ -7,8 +7,8 @@
       // Image
       .row
         .medium-12.columns
-          .orbit[role="region" aria-label="listing photos" data-orbit]
-            - if @photos
+          - if @photos.present?
+            .orbit[role="region" aria-label="listing photos" data-orbit]
               ul.orbit-container
                 button.orbit-previous
                   span.show-for-sr
@@ -29,6 +29,8 @@
                   / button class=('is-active' if photo.id == @photos[0].id)
                     span.show-for-sr
                       | First slide details
+          - else
+            = image_tag image_url(@room.photos.first), class: 'medium float-center'
       // Main info
       .row
         .medium-8.columns
@@ -63,7 +65,6 @@
         .medium-4.columns
           // Reservation form
           = render 'bookings/form'
-      br
       .row
         // About
         .medium-7.columns
@@ -125,10 +126,11 @@
               .card-divider.text-center
                 = link_to room.listing_name, room_path(room)
                 br
-                |$
+                | $
                 = room.price
-                |/per night&nbsp;&nbsp;
-                | (
+                | &nbsp;
+                | /&nbsp;per&nbsp;night
+                | &nbsp;&nbsp;(
                 = room.distance.round(2)
                 |  miles away)
                 

@@ -63,7 +63,7 @@ gem 'figaro'
 
 # Paperclip for image uploads
 gem 'paperclip', '~> 5.0.0'
-gem 'jquery-fileupload-rails'
+# gem 'jquery-fileupload-rails'
 
 # Google maps
 gem 'geocoder'

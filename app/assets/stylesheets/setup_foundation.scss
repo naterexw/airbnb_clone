@@ -3,7 +3,7 @@ $airbnb-red: #ff5a5f;
 $airbnb-pink: #ff7e82;
 $airbnb-dark-red: #fa0008;
 $white: #ffffff;
-$grey: #f8f8f8;
+$grey: #e6e6e6;
 $dark-grey: #565a5c; // $grid-column-align-edge: false;
 .airbnb-red {
   color: $airbnb-red;
@@ -11,15 +11,18 @@ $dark-grey: #565a5c; // $grid-column-align-edge: false;
 .airbnb-dark-red {
   color: $airbnb-dark-red;
 }
-// Box-sizing border-box
-* {
+.grey {
+  color: $grey;
+}
+// Box sizing hack
+-sizing border-box * {
   box-sizing        : border-box;
   -moz-box-sizing   : border-box;
   -webkit-box-sizing: border-box;
 }
 body {
   color           : $dark-grey;
-  background-color: $grey;
+  background-color: #f8f8f8;
 }
 // Circle images
 .img-circle {
@@ -43,7 +46,7 @@ body {
 // Foundation card
 .card {
   margin-bottom: 1rem;
-  border       : 1px solid #e6e6e6;
+  border       : 1px solid $grey;
   border-radius: 3px;
   background   : #fefefe;
   box-shadow   : none;
@@ -54,7 +57,7 @@ body {
   }
   .card-divider {
     padding   : 1rem;
-    background: #e6e6e6;
+    background: $grey;
   }
   .card-divider > :last-child {
     margin-bottom: 0;

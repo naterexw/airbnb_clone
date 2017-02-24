@@ -134,3 +134,19 @@ input[type='checkbox']:checked:before {
     }
   }
 }
+.dark-grey {
+  background: $dark-grey !important;
+}
+#booking-preview {
+  // display: none;
+  #booking-alert {
+    display: none;
+  }
+  #booking-table {
+    td {
+      width  : 100%;
+      border : 1px solid #e6e6e6;
+      padding: 10px;
+    }
+  }
+}
